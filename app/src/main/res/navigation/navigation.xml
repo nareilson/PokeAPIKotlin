@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation"
+            app:startDestination="@id/primeiroFragment">
+
+    <fragment android:id="@+id/primeiroFragment" android:name="com.example.mykotlinaplication.Activity.PrimeiroFragment"
+              android:label="fragment_primeiro" tools:layout="@layout/fragment_primeiro">
+        <action android:id="@+id/action_primeiroFragment" app:destination="@id/itemFragment"/>
+    </fragment>
+    <fragment android:id="@+id/itemFragment" android:name="com.example.mykotlinaplication.Activity.ItemFragment"
+              android:label="fragment_item_list" tools:layout="@layout/fragment_item_list"/>
+</navigation>
