@@ -17,16 +17,9 @@ import java.util.ArrayList
 
 class ItemFragment : Fragment() {
 
-     lateinit var Item: ArrayList<ResultPoker>
-     var vrRecycle: RecyclerView ? = null
+    var Item: ArrayList<ResultPoker> = ArrayList()
+    lateinit var vrRecycle: RecyclerView
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        getResult()
-
-    }
 
     fun getResult() {
 
@@ -35,14 +28,18 @@ class ItemFragment : Fragment() {
             override fun onResponse(call: Call<ItemPoker>, response: Response<ItemPoker>) {
 
                 if (response.isSuccessful) {
-                 response?.body()?.let {
-                     Item.addAll(it.results)
-                 }
+                    response?.body()?.let {
+                        Item.addAll(it.results)
+                        vrRecycle.layoutManager = LinearLayoutManager(activity)
+                        vrRecycle.adapter = MyItemRecyclerViewAdapter(Item)
+
+
+                    }
                 }
             }
 
             override fun onFailure(call: Call<ItemPoker>, t: Throwable) {
-               Log.e("ERRO","Não foi dessa vex")
+                Log.e("ERRO", "Não foi dessa vex")
             }
 
         })
@@ -53,11 +50,12 @@ class ItemFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_item_list, container, false)
-        vrRecycle = activity!!.findViewById(R.id.list)
-        vrRecycle!!.layoutManager = LinearLayoutManager(activity)
-        vrRecycle!!.adapter = MyItemRecyclerViewAdapter(Item)
+        vrRecycle = view.findViewById(R.id.list)
+        getResult()
+        vrRecycle.layoutManager = LinearLayoutManager(activity)
+        vrRecycle.adapter = MyItemRecyclerViewAdapter(Item)
 
-       //vrRecycle.adapter = MyItemRecyclerViewAdapter(Item)
+        //vrRecycle.adapter = MyItemRecyclerViewAdapter(Item)
         return view
     }
 
