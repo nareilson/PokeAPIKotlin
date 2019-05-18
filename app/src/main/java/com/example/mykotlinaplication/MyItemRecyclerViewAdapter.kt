@@ -1,14 +1,20 @@
 package com.example.mykotlinaplication
 
+import android.content.Context
+import android.content.Intent
+import android.os.Parcel
+import android.os.Parcelable
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 
 
+class MyItemRecyclerViewAdapter(var pokers: ArrayList<ResultPoker>, var contexto: Context) :
+    RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
-class  MyItemRecyclerViewAdapter(var pokers: ArrayList<ResultPoker>) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
 
@@ -17,24 +23,39 @@ class  MyItemRecyclerViewAdapter(var pokers: ArrayList<ResultPoker>) : RecyclerV
 
 
     }
+
     override fun getItemCount(): Int {
-       return pokers.size
+        return pokers.size
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
-        p0.txtView.setText(pokers[p1].name)
+        p0.txtView.text = pokers[p1].name
+        p0.bind()
+        p0.setItemClick(object : itemClick {
+            override fun onClick(view: View, position: Int) {
+                Toast.makeText(contexto, "Click"+pokers[p1].name, Toast.LENGTH_LONG).show()
+            }
+        })
     }
 
 
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
+        private var clickListener: itemClick? = null
+        val txtView: TextView = itemView.findViewById(R.id.text_pokerName)
 
+        fun bind() {
+            itemView.setOnClickListener(this)
+        }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        fun setItemClick(itemClick: itemClick) {
+            this.clickListener = itemClick
+        }
 
-            val txtView: TextView
-            init {
-                txtView = itemView.findViewById(R.id.text_pokerName)
-
+        override fun onClick(v: View?) {
+            if (v != null) {
+                clickListener?.onClick(v, adapterPosition)
+            }
         }
 
 

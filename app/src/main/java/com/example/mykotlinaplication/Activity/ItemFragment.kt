@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mykotlinaplication.*
-import kotlinx.android.synthetic.main.fragment_item_list.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,7 +29,7 @@ class ItemFragment : Fragment() {
                     response?.body()?.let {
                         Item.addAll(it.results)
                         vrRecycle.layoutManager = LinearLayoutManager(activity)
-                        vrRecycle.adapter = MyItemRecyclerViewAdapter(Item)
+                        vrRecycle.adapter = MyItemRecyclerViewAdapter(Item,activity!!)
 
 
                     }
@@ -39,7 +37,6 @@ class ItemFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<ItemPoker>, t: Throwable) {
-                Log.e("ERRO", "Não foi dessa vex")
             }
 
         })
@@ -53,9 +50,7 @@ class ItemFragment : Fragment() {
         vrRecycle = view.findViewById(R.id.list)
         getResult()
         vrRecycle.layoutManager = LinearLayoutManager(activity)
-        vrRecycle.adapter = MyItemRecyclerViewAdapter(Item)
-
-        //vrRecycle.adapter = MyItemRecyclerViewAdapter(Item)
+        vrRecycle.adapter = MyItemRecyclerViewAdapter(Item,activity!!)
         return view
     }
 
