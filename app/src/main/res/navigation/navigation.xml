@@ -9,5 +9,15 @@
         <action android:id="@+id/action_primeiroFragment" app:destination="@id/itemFragment"/>
     </fragment>
     <fragment android:id="@+id/itemFragment" android:name="com.example.mykotlinaplication.Activity.ItemFragment"
-              android:label="fragment_item_list" tools:layout="@layout/fragment_item_list"/>
+              android:label="fragment_item_list" tools:layout="@layout/fragment_item_list">
+        <action android:id="@+id/action_itemFragment_to_descricaoPokeFragment"
+                app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim"
+                app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"
+                app:destination="@id/descricaoPokeFragment"/>
+    </fragment>
+    <fragment android:id="@+id/descricaoPokeFragment"
+              android:name="com.example.mykotlinaplication.Activity.DescricaoPokeFragment"
+              android:label="fragment_descricao_poke" tools:layout="@layout/fragment_descricao_poke"/>
 </navigation>
