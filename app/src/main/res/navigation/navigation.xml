@@ -19,5 +19,8 @@
     </fragment>
     <fragment android:id="@+id/descricaoPokeFragment"
               android:name="com.example.mykotlinaplication.Activity.DescricaoPokeFragment"
-              android:label="fragment_descricao_poke" tools:layout="@layout/fragment_descricao_poke"/>
+              android:label="fragment_descricao_poke" tools:layout="@layout/fragment_descricao_poke">
+        <action android:id="@+id/action_descricaoPokeFragment_to_primeiroFragment"
+                app:destination="@id/primeiroFragment"/>
+    </fragment>
 </navigation>
