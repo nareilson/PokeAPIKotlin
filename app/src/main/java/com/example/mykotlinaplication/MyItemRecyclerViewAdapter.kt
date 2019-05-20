@@ -42,7 +42,7 @@ class MyItemRecyclerViewAdapter(var pokers: ArrayList<ResultPoker>, var contexto
                 val bundle = Bundle()
                 bundle.putString("namePoke",  dadosName!!)
                 Navigation.findNavController(view).navigate(R.id.action_itemFragment_to_descricaoPokeFragment,bundle)
-                Toast.makeText(contexto, "Click"+pokers[p1].name, Toast.LENGTH_LONG).show()
+                //Toast.makeText(contexto, "Click"+pokers[p1].name, Toast.LENGTH_LONG).show()
             }
         })
     }
