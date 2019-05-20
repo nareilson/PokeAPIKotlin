@@ -18,15 +18,15 @@
                 android:text="TextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView" app:layout_constraintEnd_toEndOf="@+id/imageView"
+                android:id="@+id/textViewName" app:layout_constraintEnd_toEndOf="@+id/imageView"
                 app:layout_constraintStart_toStartOf="@+id/imageView"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" android:layout_marginTop="16dp"/>
         <TextView
                 android:text="TextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView2" app:layout_constraintEnd_toEndOf="@+id/textView"
-                app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintStart_toStartOf="@+id/textView"
+                android:id="@+id/textView2" app:layout_constraintEnd_toEndOf="@+id/textViewName"
+                app:layout_constraintTop_toBottomOf="@+id/textViewName" app:layout_constraintStart_toStartOf="@+id/textViewName"
                 android:layout_marginTop="16dp"/>
         <TextView
                 android:text="TextView"

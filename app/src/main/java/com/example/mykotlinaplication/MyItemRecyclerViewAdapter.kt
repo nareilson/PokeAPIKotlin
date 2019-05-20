@@ -18,7 +18,7 @@ import androidx.navigation.fragment.NavHostFragment
 
 class MyItemRecyclerViewAdapter(var pokers: ArrayList<ResultPoker>, var contexto: Context) :
     RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
-
+    var dadosName:String?=null
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
 
@@ -34,14 +34,16 @@ class MyItemRecyclerViewAdapter(var pokers: ArrayList<ResultPoker>, var contexto
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
 
+        dadosName = pokers[p1].name
         p0.txtView.text = pokers[p1].name
         p0.bind()
         p0.setItemClick(object : itemClick {
 
             override fun onClick(view: View, position: Int) {
 
-
-                Navigation.findNavController(view).navigate(R.id.action_itemFragment_to_descricaoPokeFragment)
+                val bundle = Bundle()
+                bundle.putString("namePoke",  dadosName!!)
+                Navigation.findNavController(view).navigate(R.id.action_itemFragment_to_descricaoPokeFragment,bundle)
                 Toast.makeText(contexto, "Click"+pokers[p1].name, Toast.LENGTH_LONG).show()
             }
         })

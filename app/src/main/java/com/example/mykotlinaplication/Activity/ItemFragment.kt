@@ -26,7 +26,7 @@ class ItemFragment : Fragment() {
             override fun onResponse(call: Call<ItemPoker>, response: Response<ItemPoker>) {
 
                 if (response.isSuccessful) {
-                    response?.body()?.let {
+                    response.body()?.let {
                         Item.addAll(it.results)
                         vrRecycle.layoutManager = LinearLayoutManager(activity)
                         vrRecycle.adapter = MyItemRecyclerViewAdapter(Item,activity!!)
