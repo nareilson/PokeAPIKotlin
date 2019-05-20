@@ -33,14 +33,12 @@ class MyItemRecyclerViewAdapter(var pokers: ArrayList<ResultPoker>, var contexto
     }
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-
-        dadosName = pokers[p1].name
         p0.txtView.text = pokers[p1].name
         p0.bind()
         p0.setItemClick(object : itemClick {
 
             override fun onClick(view: View, position: Int) {
-
+                dadosName = pokers[p1].name
                 val bundle = Bundle()
                 bundle.putString("namePoke",  dadosName!!)
                 Navigation.findNavController(view).navigate(R.id.action_itemFragment_to_descricaoPokeFragment,bundle)
