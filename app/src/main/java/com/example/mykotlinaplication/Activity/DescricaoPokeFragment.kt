@@ -1,19 +1,18 @@
 package com.example.mykotlinaplication.Activity
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.mykotlinaplication.R
+import kotlinx.android.synthetic.main.fragment_descricao_poke.*
 
 
 class DescricaoPokeFragment : Fragment() {
 
+    lateinit var name:TextView
     var namePoker:String?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +27,11 @@ class DescricaoPokeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_descricao_poke, container, false)
+        val view:View = inflater.inflate(R.layout.fragment_descricao_poke, container, false)
+        name = view.findViewById(R.id.textViewNameDescricao)
+        name.text = namePoker
 
-
-
+        return view
     }
 
 }
