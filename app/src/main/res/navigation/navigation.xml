@@ -7,6 +7,7 @@
     <fragment android:id="@+id/primeiroFragment" android:name="com.example.mykotlinaplication.Activity.PrimeiroFragment"
               android:label="fragment_primeiro" tools:layout="@layout/fragment_primeiro">
         <action android:id="@+id/action_primeiroFragment" app:destination="@id/itemFragment"/>
+        <action android:id="@+id/action_primeiroFragment_to_testeFragment" app:destination="@id/testeFragment"/>
     </fragment>
     <fragment android:id="@+id/itemFragment" android:name="com.example.mykotlinaplication.Activity.ItemFragment"
               android:label="fragment_item_list" tools:layout="@layout/fragment_item_list">
@@ -23,4 +24,6 @@
         <action android:id="@+id/action_descricaoPokeFragment_to_primeiroFragment"
                 app:destination="@id/primeiroFragment"/>
     </fragment>
+    <fragment android:id="@+id/testeFragment" android:name="com.example.mykotlinaplication.Activity.TesteFragment"
+              android:label="fragment_teste" tools:layout="@layout/fragment_teste"/>
 </navigation>
