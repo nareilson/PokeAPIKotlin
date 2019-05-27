@@ -30,7 +30,7 @@
                android:layout_height="wrap_content"
                android:id="@+id/guideline4" app:layout_constraintGuide_percent="0.95"/>
        <Button
-               android:text="Button"
+               android:text="OK"
                android:layout_width="0dp"
                android:layout_height="wrap_content"
                android:id="@+id/buttonTeste" app:layout_constraintStart_toStartOf="@+id/guideline"
