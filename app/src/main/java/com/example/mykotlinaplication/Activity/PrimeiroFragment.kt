@@ -16,15 +16,24 @@ class PrimeiroFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?): View? {
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_primeiro, container, false)
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-       buttonOK.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_primeiroFragment))
-       buttonIntroRX.setOnClickListener {
-           Navigation.findNavController(view).navigate(R.id.action_primeiroFragment_to_testeFragment) }
+        buttonOK.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_primeiroFragment))
+
+        buttonIntroRX.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_primeiroFragment_to_testeFragment)
+        }
+
+        buttonRx2.setOnClickListener {
+            Navigation.findNavController(view).navigate(R.id.action_primeiroFragment_to_fragmenRX2)
+        }
+
 
     }
 }

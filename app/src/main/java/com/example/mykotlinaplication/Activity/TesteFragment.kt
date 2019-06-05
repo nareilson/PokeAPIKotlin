@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_teste.*
 class TesteFragment : Fragment() {
     val button:Button? = null
     val text:TextView?=null
-    val obs = PublishSubject.create<String>()
+    val pubSubObs = PublishSubject.create<String>()
     val dispose = CompositeDisposable()
     var cont = 0
 
@@ -24,20 +24,24 @@ class TesteFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_teste, container, false)
+        return  inflater.inflate(R.layout.fragment_teste, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         button?.findViewById<Button>(R.id.buttonTeste)
         text?.findViewById<TextView>(R.id.textViewTeste)
 
         dispose.add(
-            obs.subscribe({t ->textViewTeste.text = t },{e ->textViewTeste.text = "erro"})
+            pubSubObs.subscribe({ t ->textViewTeste.text = t }
+                ,{ e ->textViewTeste.text = "erro"}
+            )
         )
         button?.setOnClickListener {
-            obs.onNext("Mensagem ${cont++}")
-        if(cont == 10){
-            obs.onComplete()
-        }}
-        // Inflate the layout for this fragment
-        return view
+            pubSubObs.onNext("Mensagem ${cont++}")
+            if(cont == 10){
+                pubSubObs.onComplete()
+            }}
     }
 
     override fun onDestroy() {

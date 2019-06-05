@@ -14,7 +14,6 @@ import com.example.mykotlinaplication.APICliente
 import com.example.mykotlinaplication.R
 import com.example.mykotlinaplication.Descricao.DescricaoPoker
 import com.example.mykotlinaplication.RetrofitClass
-import kotlinx.android.synthetic.main.fragment_descricao_poke.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
