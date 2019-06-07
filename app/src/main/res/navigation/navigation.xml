@@ -8,6 +8,7 @@
               android:label="fragment_primeiro" tools:layout="@layout/fragment_primeiro">
         <action android:id="@+id/action_primeiroFragment" app:destination="@id/itemFragment"/>
         <action android:id="@+id/action_primeiroFragment_to_testeFragment" app:destination="@id/testeFragment"/>
+        <action android:id="@+id/action_primeiroFragment_to_fragmenRX2" app:destination="@id/fragmenRX2"/>
     </fragment>
     <fragment android:id="@+id/itemFragment" android:name="com.example.mykotlinaplication.Activity.ItemFragment"
               android:label="fragment_item_list" tools:layout="@layout/fragment_item_list">
@@ -26,4 +27,6 @@
     </fragment>
     <fragment android:id="@+id/testeFragment" android:name="com.example.mykotlinaplication.Activity.TesteFragment"
               android:label="fragment_teste" tools:layout="@layout/fragment_teste"/>
+    <fragment android:id="@+id/fragmenRX2" android:name="com.example.mykotlinaplication.FragmenRX2"
+              android:label="fragment_fragmen_rx2" tools:layout="@layout/fragment_fragmen_rx2"/>
 </navigation>
